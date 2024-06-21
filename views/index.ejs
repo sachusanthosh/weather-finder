@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>weather-app</title>
+</head>
+<body>
+    <header>
+
+
+    </header>
+    
+    <main>
+        <div class="container" id="extra">
+            <h1>
+                check the weather
+            </h1><br>
+            <form action="/weather" method="get">
+                <input type="text" name="place" placeholder="enter the place">
+                <button type="submit">get weather</button>
+            </form>
+        
+            <!-- code to show the weathe status -->
+            <% if (locals.weather) {%>
+             <div class="card">
+                
+                    <p>
+                        temp : <%= weather.main.temp %>&deg;F
+                    </p>
+                    <p>
+                        feels like : <%= weather.main.feels_like %>&deg;F
+                    </p>
+                    <p>
+                        humidity : <%= weather.main.humidity %>&deg;F
+                    </p>
+                    <p>
+                        <%= weather.name %> , <%= weather.sys.country %>
+                    </p>
+                    
+                <% } else {%>
+                    <%= locals.error %>
+                <% } %>
+             </div>
+            </div>
+
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
